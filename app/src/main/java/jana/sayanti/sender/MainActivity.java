@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-        String url = "http://" + IP + "/bugsbunny?pass=" + pass;
+        String url = "http://" + IP + "/" + pass;
         Log.d("Request URL", url);
 
         StringRequest myRequest = new StringRequest(Request.Method.GET, url,
@@ -163,11 +163,11 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Something went wrong! :(", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Something went wrong! :(", Toast.LENGTH_SHORT).show();
             }
         });
 
-        myRequest.setRetryPolicy(new RetryPolicy() {
+      /*  myRequest.setRetryPolicy(new RetryPolicy() {
             @Override
             public int getCurrentTimeout() {
                 return 50000;
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void retry(VolleyError error) throws VolleyError {
             }
-        });
+        }); */
 
         queue.add(myRequest);
     }
