@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-        String url = "http://" + IP + "/" + pass;
+        String url = "http://" + IP + "/bugsbunny?pass=" + pass;
         Log.d("Request URL", url);
 
         StringRequest myRequest = new StringRequest(Request.Method.GET, url,
@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(getApplicationContext(), "Password applied... Validating.", Toast.LENGTH_SHORT).show();
+                        Log.d("Request", "Sent successfully");
                     }
                 }, new Response.ErrorListener() {
             @Override
